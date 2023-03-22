@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 
 services:
 
@@ -7,10 +7,8 @@ services:
     image: "containous/whoami"
     networks:
       - traefik-public
-    volumes:
-      - datavolume:/etc
     deploy:
-      replicas: 3
+      replicas: 1
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.whoareyou.rule=Host(`whoareyou.$DOMAIN`)"
