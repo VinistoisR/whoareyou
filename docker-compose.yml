@@ -4,11 +4,11 @@ services:
 
   whoareyou:
     hostname: "{{.Service.Name}}-{{.Task.Slot}}-{{.Node.Hostname}}"
-    image: "containous/whoami"
+    image: traefik/whoami:latest
     networks:
-      - traefik-public
+      - host
     deploy:
-      replicas: 1
+      mode: global
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.whoareyou.rule=Host(`whoareyou.$DOMAIN`)"
@@ -20,5 +20,5 @@ services:
         - "traefik.http.routers.whoareyou.middlewares=admin"
 
 networks:
-  traefik-public:
+  host:
     external: true
