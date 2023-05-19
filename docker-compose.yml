@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   whoareyou:
-    hostname: "{{.Service.Name}}-{{.Task.Slot}}-{{.Node.Hostname}}"
+    hostname: "{{.Service.Name}}-{{.Node.Hostname}}"
     image: traefik/whoami:latest
     networks:
       - host
