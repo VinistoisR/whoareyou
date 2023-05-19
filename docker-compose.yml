@@ -7,8 +7,6 @@ services:
     image: traefik/whoami:latest
     networks:
       - host
-    ports:
-      - "8888:80"
     deploy:
       mode: global
       labels:
