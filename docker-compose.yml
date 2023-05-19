@@ -6,7 +6,7 @@ services:
     hostname: "{{.Service.Name}}-{{.Node.Hostname}}"
     image: traefik/whoami:latest
     networks:
-      - host
+      - traefik-public
     deploy:
       mode: global
       labels:
@@ -20,5 +20,5 @@ services:
         - "traefik.http.routers.whoareyou.middlewares=admin"
 
 networks:
-  host:
+  traefik-public:
     external: true
